@@ -1,5 +1,6 @@
 # Dependencies (matches node_modules anywhere: root, client, server, nested packages, etc.)
 node_modules/
+client/node_modules/
 
 # Env files
 .env
