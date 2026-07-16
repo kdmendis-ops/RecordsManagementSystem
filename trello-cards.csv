@@ -1,0 +1,13 @@
+Name,List,Labels,Description
+CV-01 Authentication and login,Done,"Must,5 points","Register and login return JWT; passwords are hashed."
+CV-02 Create healthcare survey,Done,"Must,5 points","Staff create a survey with title, department, status and questions."
+CV-03 View surveys,Done,"Must,3 points","Survey dashboard lists saved surveys."
+CV-04 Update survey,Done,"Must,5 points","Owner or admin can update survey details and questions."
+CV-05 Delete survey,Done,"Must,3 points","Owner or admin can delete a survey."
+CV-06 Published survey access,Done,"Must,3 points","Patients see published surveys only."
+CV-07 Submit survey response,Done,"Should,5 points","Patient responses are saved against a survey."
+CV-08 Role authorization,Done,"Must,5 points","Patient, staff and admin permissions are enforced."
+CV-09 API test evidence,Done,"Must,3 points","README includes request examples."
+CV-10 Response reporting dashboard,To Do,"Could,8 points","Summarise ratings and feedback for staff."
+Export API test collection,To Do,"Must,3 points","Export a Postman or Thunder Client test collection."
+Deploy Team Informatics,To Do,"Should,5 points","Deploy the client and API."

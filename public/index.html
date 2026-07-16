@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Informatics | Healthcare Surveys</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><div><span class="logo">✚ Team Informatics</span><p>Healthcare feedback, heard clearly.</p></div><button id="logout" class="secondary hidden">Log out</button></header>
+  <main>
+    <section id="auth-card" class="card auth-grid">
+      <div><h1>Welcome to Team Informatics</h1><p>Sign in to manage patient-experience surveys, or register a staff account.</p></div>
+      <form id="login-form"><h2>Sign in</h2><label>Email<input id="login-email" type="email" required value="staff@teaminformatics.org"></label><label>Password<input id="login-password" type="password" required value="password123"></label><button>Sign in</button></form>
+      <form id="register-form"><h2>Register staff account</h2><label>Name<input id="register-name" required></label><label>Email<input id="register-email" type="email" required></label><label>Password<input id="register-password" type="password" minlength="6" required></label><button>Create account</button></form>
+    </section>
+    <section id="dashboard" class="hidden">
+      <div class="title-row"><div><h1>Survey dashboard</h1><p id="welcome"></p></div><button id="new-survey">+ Create survey</button></div>
+      <form id="survey-form" class="card hidden"><h2 id="form-title">Create a healthcare survey</h2><input id="survey-id" type="hidden"><label>Survey title<input id="title" required placeholder="Patient experience survey"></label><label>Department<input id="department" required placeholder="Primary Care"></label><label>Description<textarea id="description" placeholder="Tell patients why their feedback matters."></textarea></label><label>Status<select id="status"><option value="draft">Draft</option><option value="published">Published</option><option value="closed">Closed</option></select></label><label>Questions (one per line)<textarea id="questions" required placeholder="How would you rate your visit?|rating|true&#10;What could we improve?|text|false"></textarea></label><small>Format: Question text | rating, text, or yes-no | required (true/false)</small><div class="form-actions"><button>Save survey</button><button type="button" id="cancel" class="secondary">Cancel</button></div></form>
+      <div id="message" role="status"></div><div id="survey-list" class="survey-grid"></div>
+    </section>
+  </main>
+  <template id="survey-template"><article class="card survey-card"><div class="survey-head"><span class="badge"></span><div class="actions"><button class="edit secondary">Edit</button><button class="delete danger">Delete</button></div></div><h2 class="survey-title"></h2><p class="survey-description"></p><p><strong>Department:</strong> <span class="survey-department"></span></p><p class="question-count"></p></article></template>
+  <script src="app.js"></script>
+</body>
+</html>
