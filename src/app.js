@@ -1,3 +1,4 @@
+// Express app setup: middleware, route mounting, and error handling.
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -17,6 +18,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/surveys', surveyRoutes);
 app.use('/api/responses', responseRoutes);
 
+// Catch-all error handler: any next(error) call in a route ends up here.
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.statusCode || 500).json({ message: err.message || 'Server error' });

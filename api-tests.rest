@@ -1,0 +1,64 @@
+### Team Informatics API - basic CRUD demo requests
+### Uses the VS Code "REST Client" extension. Click "Send Request" above any block.
+
+@baseUrl = http://localhost:5001/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWFiZTljNjZmOWI2MjEzZDA2ZjM0MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4NDMzMTkzMiwiZXhwIjoxNzg0OTM2NzMyfQ.XV9znQzMHjAgomYKG-Dh2v79eyqHx4S7b-mNplkNX_8
+### Health check
+GET {{baseUrl}}/health
+
+### Register a user
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test Admin",
+  "email": "admin@example.com",
+  "password": "Password123!",
+  "role": "admin"
+}
+
+### Login (copy the returned token into @token above)
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "Password123!"
+}
+
+### CREATE - add a new survey
+POST {{baseUrl}}/surveys
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Patient Satisfaction Survey",
+  "description": "Quick feedback after a visit",
+  "department": "Cardiology",
+  "status": "published",
+  "questions": [
+    { "prompt": "How satisfied were you with your visit?", "type": "rating", "required": true },
+    { "prompt": "Any additional comments?", "type": "text", "required": false }
+  ]
+}
+
+### READ - list all surveys
+GET {{baseUrl}}/surveys
+
+### READ - get a single survey by id
+@surveyId = 6a5abee766f9b6213d06f345
+GET {{baseUrl}}/surveys/{{surveyId}}
+
+### UPDATE - edit a survey
+PATCH {{baseUrl}}/surveys/{{surveyId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Patient Satisfaction Survey (Updated)",
+  "status": "closed"
+}
+
+### DELETE - remove a survey
+DELETE {{baseUrl}}/surveys/{{surveyId}}
+Authorization: Bearer {{token}}

@@ -1,3 +1,5 @@
+// Survey CRUD endpoints. Reads are public (controller filters by publish
+// status); writes require a logged-in staff or admin user.
 const router = require('express').Router();
 const controller = require('../controllers/surveyController');
 const { protect, authorize } = require('../middleware/auth');

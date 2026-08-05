@@ -1,3 +1,4 @@
+// Auth endpoints: register, login, and fetch the current user.
 const router = require('express').Router();
 const auth = require('../controllers/authController');
 const { protect } = require('../middleware/auth');
