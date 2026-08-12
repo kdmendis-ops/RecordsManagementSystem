@@ -11,6 +11,64 @@ An Express, Node.js, MongoDB MVC application for staff to manage healthcare pati
 5. For the React/Vite client, open a second terminal, run `cd client`, `npm install`, then `npm run dev`.
 6. Browse to the Vite address shown in the terminal (usually `http://localhost:5173`).
 
+## Project structure
+
+```
+RecordsManagementSystem/
+├── client/                    # React + Vite frontend
+│   ├── assets/                # Static assets bundled with the client
+│   ├── core/
+│   │   └── api.js             # Axios/fetch wrapper for calling the API
+│   ├── public/                # Static files served as-is by Vite
+│   ├── src/
+│   │   ├── core/
+│   │   │   └── api.js         # Duplicate API helper used by src components
+│   │   ├── App.jsx            # Root React component / view routing
+│   │   ├── main.jsx           # React entry point (mounts <App />)
+│   │   └── styles.css         # Global styles
+│   ├── index.html             # Vite HTML entry point
+│   ├── MainRouter.jsx         # Top-level route definitions
+│   ├── theme.jsx              # Theme/styling configuration
+│   └── vite.config.js         # Vite build/dev-server configuration
+├── config/
+│   └── config.js              # Shared app configuration (env-based)
+├── public/                    # Legacy static assets (pre-Vite client)
+│   ├── app.js
+│   ├── index.html
+│   └── styles.css
+├── server/                    # Express entry point (npm start / npm run dev)
+│   ├── assets-router.js       # Serves static/uploaded assets
+│   ├── express.js             # Express app setup (middleware, routes)
+│   └── server.js              # HTTP server bootstrap
+├── src/                       # Core MVC application code
+│   ├── config/
+│   │   └── database.js        # MongoDB/Mongoose connection setup
+│   ├── controllers/           # Request handlers / business logic
+│   │   ├── authController.js
+│   │   ├── responseController.js
+│   │   ├── surveyController.js
+│   │   └── userController.js
+│   ├── middleware/
+│   │   └── auth.js            # JWT auth/role-check middleware
+│   ├── models/                # Mongoose schemas
+│   │   ├── Response.js
+│   │   ├── Survey.js
+│   │   └── User.js
+│   ├── routes/                # Express route definitions
+│   │   ├── authRoutes.js
+│   │   ├── responseRoutes.js
+│   │   ├── surveyRoutes.js
+│   │   └── userRoutes.js
+│   └── app.js                 # Express app assembly (mounts routes/middleware)
+├── testing/
+│   └── QA_TEST_REPORT.md      # Manual QA test results
+├── api-tests.rest             # REST Client / Postman-style API requests
+├── package.json               # Root (server) dependencies and npm scripts
+├── PROJECT_MANAGEMENT.md      # Backlog & Kanban board
+├── server.js                  # Root server bootstrap
+└── trello-cards.csv           # Trello import file for the Kanban board
+```
+
 ## Required MERN skeleton layout
 
 The project now follows the layout requested in the supplied screenshots: `client/` contains `assets`, `core`, `public`, `src`, `MainRouter.jsx`, `theme.jsx`, and Vite configuration. The root also includes `config/config.js` and a `server/` folder with `controllers`, `helpers`, `models`, `routes`, `assets-router.js`, `express.js`, and `server.js`. The server files expose the working Team Informatics survey MVC implementation using the course naming convention.
