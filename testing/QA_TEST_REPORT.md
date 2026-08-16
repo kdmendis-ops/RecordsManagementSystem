@@ -4,8 +4,8 @@
 **Student ID:** 300619814  
 **Role:** Quality Assurance Tester  
 **Application:** Team Informatics Healthcare Surveys  
-**Testing Tool:** Thunder Client  
-**Test Date:** July 18, 2026  
+**Testing Tool:** VS Code REST Client and Cypress  
+**Test Date:** August 15, 2026  
 **Server:** http://localhost:5001
 
 ## Testing Objective
@@ -28,6 +28,17 @@ The purpose of this testing was to confirm that the Team Informatics Healthcare 
 | QA-10 | Delete healthcare survey | DELETE /api/surveys/:id | Survey is removed | 204 No Content | PASS |
 | QA-11 | Confirm survey deletion | GET /api/surveys/:id | Deleted survey is not found | 404 Not Found | PASS |
 
+## Cypress Automated UI Testing
+
+Cypress was used to verify that the Team Informatics frontend loads correctly and displays the required interface elements.
+
+| Test ID | Test Description | Actual Result | Status |
+|---|---|---|---|
+| CY-01 | Load the application | Application loaded successfully | PASS |
+| CY-02 | Display Team Informatics heading | Heading displayed correctly | PASS |
+| CY-03 | Display Sign in section | Sign in section displayed | PASS |
+| CY-04 | Display Register staff section | Register staff section displayed | PASS |
+
 ## Testing Conclusion
 
-All tested authentication, authorization and survey CRUD functions performed according to the expected results. No critical defects were identified during this testing cycle. The tested backend release is ready for the project demonstration.
+All tested authentication, authorization, survey CRUD, and Cypress UI functions performed according to the expected results. No critical defects were identified during this testing cycle. The tested application is ready for the project demonstration.
